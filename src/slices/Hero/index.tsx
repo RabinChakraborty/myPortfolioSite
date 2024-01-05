@@ -87,14 +87,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               slice.primary.first_name + ' ' + slice.primary.last_name
             }
           >
-            <span className='block text-[#E84545] md:text-nowrap'>
+            <span className='block text-[#E84545] md:text-nowrap text-nowrap  md:text-[10rem] text-[8rem]'>
               {renderLetters(slice.primary.first_name, 'first')}
             </span>
-            <span className='-mt-[.2rem] block text-slate-300 text-[6rem] md:text-[7rem] text-nowrap md:text-nowrap'>
+            <span className='-mt-[.2rem] block text-slate-300 text-[5rem] md:text-[6.5rem] text-nowrap md:text-nowrap'>
               {renderLetters(slice.primary.last_name, 'last')}
             </span>
           </h1>
-          <span className='job-title block bg-gradient-to-tr from-yellow-200 via-[#FF165D] to-yellow-200 bg-clip-text text-2xl font-bold uppercase tracking-[.2rem] text-transparent opacity-0 md:text-4xl'>
+          <span className='job-title  block bg-gradient-to-tr from-yellow-200 via-[#FF165D] to-yellow-200 bg-clip-text text-1.7xl font-bold uppercase tracking-[.2rem] text-transparent opacity-0 md:text-3xl text-nowrap'>
             {slice.primary.tag_line}
           </span>
         </div>
