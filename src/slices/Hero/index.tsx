@@ -5,7 +5,7 @@ import { SliceComponentProps } from '@prismicio/react';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import Shapes from './Shapes';
-
+import Scroll from './Scroll/Scroll';
 /**
  * Props for `Hero`.
  */
@@ -89,7 +89,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               slice.primary.first_name + ' ' + slice.primary.last_name
             }
           >
-            <span className='block text-[#E84545] md:text-nowrap text-nowrap  md:text-[10rem] text-[8rem]'>
+            <span className='block text-[#E84545] md:text-nowrap text-nowrap  md:text-[10rem] text-[8rem] items-center md:items-start'>
               {renderLetters(slice.primary.first_name, 'first')}
             </span>
             <span className='-mt-[.2rem] block text-slate-300 text-[5rem] md:text-[6.5rem] text-nowrap md:text-nowrap'>
@@ -100,6 +100,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             {slice.primary.tag_line}
           </span>
         </div>
+
+        {/* <Scroll /> Issue to be fixed later */}
       </div>
     </Bounded>
   );

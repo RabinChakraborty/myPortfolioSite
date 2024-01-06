@@ -10,6 +10,8 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^1.0.6",
     "@prismicio/client": "^7.3.1",
     "@prismicio/next": "^1.5.0",
     "@prismicio/react": "^2.7.3",
@@ -18,6 +20,7 @@
     "@react-spring/web": "^9.7.3",
     "@react-three/drei": "^9.93.0",
     "@react-three/fiber": "^8.15.13",
+    "@react-three/postprocessing": "^2.15.11",
     "@types/three": "^0.160.0",
     "clsx": "^2.1.0",
     "gsap": "^3.12.4",
