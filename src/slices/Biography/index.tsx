@@ -16,7 +16,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className='grid gap-y-6  gap-x-8 md:grid-cols-[2fr,1fr] '></div>
+      <div className='grid gap-y-6 gap-x-8 md:grid-cols-[2fr,1fr]'></div>
     </Bounded>
   );
 };
