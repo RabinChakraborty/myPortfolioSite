@@ -3,6 +3,7 @@ import { Content } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 import Heading from './../../app/Components/Heading';
 import Button from '@/app/Components/Button';
+import { PrismicNextImage } from '@prismicio/next';
 
 /**
  * Props for `Biography`.
@@ -18,7 +19,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className='grid1 gap-y-6 gap-x-8 md:grid-cols-[2fr,1fr]'>
+      <div className='grid gap-y-6 gap-x-8 md:grid-cols-[2fr,1fr]'>
         <Heading as='h1' size='xl'>
           {slice.primary.heading}
         </Heading>
@@ -28,6 +29,10 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
         <Button
           linkField={slice.primary.button_link}
           label={slice.primary.button_text}
+        />
+        <PrismicNextImage
+          field={slice.primary.avatar}
+          className='row-start-1 max-w-sm md:col-start-2 md:row-end-3'
         />
       </div>
     </Bounded>
