@@ -1,5 +1,6 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import Bounded from '@/app/Components/Bonded';
+import { Content } from '@prismicio/client';
+import { SliceComponentProps } from '@prismicio/react';
 
 /**
  * Props for `ContentIndex`.
@@ -11,13 +12,13 @@ export type ContentIndexProps = SliceComponentProps<Content.ContentIndexSlice>;
  */
 const ContentIndex = ({ slice }: ContentIndexProps): JSX.Element => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       Placeholder component for content_index (variation: {slice.variation})
       Slices
-    </section>
+    </Bounded>
   );
 };
 
