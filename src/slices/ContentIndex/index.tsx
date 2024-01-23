@@ -1,6 +1,7 @@
 import Bounded from '@/app/Components/Bonded';
-import { Content } from '@prismicio/client';
-import { SliceComponentProps } from '@prismicio/react';
+import Heading from '@/app/Components/Heading';
+import { Content, isFilled } from '@prismicio/client';
+import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 
 /**
  * Props for `ContentIndex`.
@@ -16,8 +17,20 @@ const ContentIndex = ({ slice }: ContentIndexProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for content_index (variation: {slice.variation})
-      Slices
+      <Heading size='xl' className='mb-8'>
+        {slice.primary.heading}
+      </Heading>
+      {isFilled.richText(slice.primary.description) && (
+        <div className='prose prose-xl prose-invert mb-10'>
+          <PrismicRichText field={slice.primary.description} />
+        </div>
+      )}
+      <ContentList
+        items={items}
+        contentType={slice.primary.content_type}
+        viewMoreText={slice.primary.view_more_text}
+        fallbackItemImage={slice.primary.fallback_item_image}
+      />
     </Bounded>
   );
 };
