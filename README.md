@@ -73,8 +73,8 @@
 <p>To run the project locally, follow these steps:</p>
 
 <ol>
-  <li>Clone the repository: <code>git clone https://github.com/your-username/myportfoliosite.git</code>.</li>
-  <li>Navigate to the project directory: <code>cd myportfoliosite</code>.</li>
+  <li>Clone the repository: <code>git clone https://github.com/RabinChakraborty/myPortfolioSite.git</code>.</li>
+  <li>Navigate to the project directory: <code>cd myPortfolioSite</code>.</li>
   <li>Install dependencies: <code>npm install</code>.</li>
   <li>Run the development server: <code>npm run dev</code>.</li>
   <li>Open your browser and visit <code>http://localhost:3000</code> to view the website.</li>
