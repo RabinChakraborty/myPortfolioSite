@@ -181,10 +181,3 @@
 //     </>
 //   );
 // }
-import React from 'react';
-
-const ContentList = () => {
-  return <div>content index</div>;
-};
-
-export default ContentList;
