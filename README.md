@@ -5,7 +5,7 @@
 <!-- Overview -->
 <h2>Overview</h2>
 
-<p>Welcome to the repository of my personal portfolio website! This project showcases my skills, projects, and experiences in a visually appealing manner. Feel free to explore the different sections and pages.</p>
+<p>Welcome to the repository of my personal portfolio website! This project showcases my skills, projects, and experiences in a visually appealing manner. Feel free to explore the different sections and pages.I also have some Blogs for you to checkout</p>
 
 <!-- Tech Stack -->
 <h2>Tech Stack</h2>
