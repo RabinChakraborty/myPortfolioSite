@@ -26,12 +26,7 @@ const ContentIndex = ({ slice }: ContentIndexProps): JSX.Element => {
           <PrismicRichText field={slice.primary.description} />
         </div>
       )}
-      <ContentList
-        items={items}
-        contentType={slice.primary.content_type}
-        viewMoreText={slice.primary.view_more_text}
-        fallbackItemImage={slice.primary.fallback_item_image}
-      />
+      <ContentList />
     </Bounded>
   );
 };
