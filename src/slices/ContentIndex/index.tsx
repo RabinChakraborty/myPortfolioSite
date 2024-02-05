@@ -3,6 +3,7 @@ import Heading from '@/app/Components/Heading';
 import { Content, isFilled } from '@prismicio/client';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 import ContentList from './ContentList';
+import { createClient } from '@/prismicio';
 
 /**
  * Props for `ContentIndex`.
@@ -12,7 +13,12 @@ export type ContentIndexProps = SliceComponentProps<Content.ContentIndexSlice>;
 /**
  * Component for "ContentIndex" Slices.
  */
-const ContentIndex = ({ slice }: ContentIndexProps): JSX.Element => {
+const ContentIndex = async ({
+  slice,
+}: ContentIndexProps): Promise<JSX.Element> => {
+  const client = createClient();
+  const blogPosts = await client.getAllByType('blog_post');
+  const projects = await client.getAllByType('project');
   return (
     <Bounded
       data-slice-type={slice.slice_type}
