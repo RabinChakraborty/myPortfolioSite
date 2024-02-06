@@ -19,6 +19,7 @@ const ContentIndex = async ({
   const client = createClient();
   const blogPosts = await client.getAllByType('blog_post');
   const projects = await client.getAllByType('project');
+  const items = slice.primary.content_type === 'Blogs' ? blogPosts : projects;
   return (
     <Bounded
       data-slice-type={slice.slice_type}
