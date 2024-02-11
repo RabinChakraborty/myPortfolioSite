@@ -22,6 +22,11 @@ const ContentList = ({
           <a href=''>
             <div>
               <span>{item.data.title}</span>
+              <div>
+                {item.tags.map((tag, index) => (
+                  <span key={index}>{tag}</span>
+                ))}
+              </div>
             </div>
             <span>{viewMoreText}</span>
           </a>
