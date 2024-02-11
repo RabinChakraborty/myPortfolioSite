@@ -15,7 +15,20 @@ const ContentList = ({
   fallbackItemImage,
   viewMoreText = 'Read More',
 }: ContentListProps) => {
-  return <div>hello</div>;
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>
+          <a href=''>
+            <div>
+              <span>{item.data.title}</span>
+            </div>
+            <span>{viewMoreText}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default ContentList;
