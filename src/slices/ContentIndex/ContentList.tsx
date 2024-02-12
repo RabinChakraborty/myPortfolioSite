@@ -23,15 +23,17 @@ const ContentList = ({
             href=''
             className='flex flex-col justify-between border-t border-t-slate-100 text-slate-200 md:flex-row'
           >
-            <div>
-              <span>{item.data.title}</span>
-              <div>
+            <div className='flex flex-col'>
+              <span className='text-3xl font-bold'>{item.data.title}</span>
+              <div className='flex gap-3 text-yellow-400 text-lg font-bold'>
                 {item.tags.map((tag, index) => (
                   <span key={index}>{tag}</span>
                 ))}
               </div>
             </div>
-            <span>{viewMoreText}</span>
+            <span className='ml-auto flex items-center gap-2 text-xl font-medium md:ml-0'>
+              {viewMoreText}
+            </span>
           </a>
         </li>
       ))}
