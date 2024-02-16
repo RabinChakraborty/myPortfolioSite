@@ -16,6 +16,7 @@ const ContentList = ({
   fallbackItemImage,
   viewMoreText = 'Read More',
 }: ContentListProps) => {
+  const urlPrefix = contentType === 'Blog' ? '/blog' : '/project';
   return (
     <ul className='grid border-b border-b-slate-100'>
       {items.map((item, index) => (
