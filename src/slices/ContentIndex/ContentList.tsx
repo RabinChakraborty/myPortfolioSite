@@ -22,7 +22,7 @@ const ContentList = ({
       {items.map((item, index) => (
         <li key={index} className='list-item opacity-0f'>
           <a
-            href=''
+            href={urlPrefix + '/' + item.uid}
             className='flex flex-col justify-between border-t border-t-slate-100 text-slate-200 md:flex-row'
           >
             <div className='flex flex-col'>
