@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Content } from '@prismicio/client';
 import { MdArrowOutward } from 'react-icons/md';
+import Link from 'next/link';
 
 type ContentListProps = {
   items: Content.BlogPostDocument[] | Content.ProjectDocument[];
@@ -21,7 +22,7 @@ const ContentList = ({
     <ul className='grid border-b border-b-slate-100'>
       {items.map((item, index) => (
         <li key={index} className='list-item opacity-0f'>
-          <a
+          <Link
             href={urlPrefix + '/' + item.uid}
             className='flex flex-col justify-between border-t border-t-slate-100 text-slate-200 md:flex-row'
           >
@@ -36,7 +37,7 @@ const ContentList = ({
             <span className='ml-auto flex items-center gap-2 text-xl font-medium md:ml-0'>
               {viewMoreText} <MdArrowOutward />
             </span>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
