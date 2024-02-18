@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Content, isFilled } from '@prismicio/client';
 import { MdArrowOutward } from 'react-icons/md';
 import Link from 'next/link';
