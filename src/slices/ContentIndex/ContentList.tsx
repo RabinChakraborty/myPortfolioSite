@@ -19,6 +19,7 @@ const ContentList = ({
   viewMoreText = 'Read More',
 }: ContentListProps) => {
   const component = useRef(null);
+  const [currentitem, SetCurrentItem] = useState<null | number>(null);
   const urlPrefix = contentType === 'Blog' ? '/blog' : '/project';
   return (
     <div ref={component}>
