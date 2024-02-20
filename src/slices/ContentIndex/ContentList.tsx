@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { Content, isFilled } from '@prismicio/client';
+import { Content, asImageSrc, isFilled } from '@prismicio/client';
 import { MdArrowOutward } from 'react-icons/md';
 import Link from 'next/link';
 import { components } from './../index';
@@ -21,6 +21,17 @@ const ContentList = ({
   const component = useRef(null);
   const [currentitem, SetCurrentItem] = useState<null | number>(null);
   const urlPrefix = contentType === 'Blog' ? '/blog' : '/project';
+  const contentImage = items.map((item) => {
+    const image = isFilled.image(item.data.image)
+      ? item.data.image
+      : fallbackItemImage;
+    return asImageSrc(image, {
+      fit: 'crop',
+      w: 220,
+      h: 320,
+      exp: -10,
+    });
+  });
   return (
     <div ref={component}>
       <ul className='grid border-b border-b-slate-100'>
