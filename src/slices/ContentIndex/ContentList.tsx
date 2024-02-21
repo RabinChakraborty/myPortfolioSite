@@ -63,6 +63,11 @@ const ContentList = ({
           </>
         ))}
       </ul>
+      {/* Hover Eliment */}
+      <div
+        className='hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-over bg-center opacity-0 transition-[background] duration-300 '
+        style={{ backgroundImage: '' }}
+      ></div>
     </div>
   );
 };
