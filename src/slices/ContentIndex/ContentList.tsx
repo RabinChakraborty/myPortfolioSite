@@ -19,9 +19,9 @@ const ContentList = ({
   viewMoreText = 'Read More',
 }: ContentListProps) => {
   const component = useRef(null);
-  const [currentitem, SetCurrentItem] = useState<null | number>(null);
+  const [currentItem, SetCurrentItem] = useState<null | number>(null);
   const urlPrefix = contentType === 'Blog' ? '/blog' : '/project';
-  const contentImage = items.map((item) => {
+  const contentImages = items.map((item) => {
     const image = isFilled.image(item.data.image)
       ? item.data.image
       : fallbackItemImage;
@@ -66,7 +66,10 @@ const ContentList = ({
       {/* Hover Eliment */}
       <div
         className='hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-over bg-center opacity-0 transition-[background] duration-300 '
-        style={{ backgroundImage: '' }}
+        style={{
+          backgroundImage:
+            currentItem !== null ? `url(${contentImages[currentItem]})` : '',
+        }}
       ></div>
     </div>
   );
