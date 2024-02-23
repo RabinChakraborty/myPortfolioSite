@@ -32,13 +32,20 @@ const ContentList = ({
       exp: -10,
     });
   });
+  const onMouseEnter = (index: number) => {
+    SetCurrentItem(index);
+  };
   return (
     <div ref={component}>
       <ul className='grid border-b border-b-slate-100'>
         {items.map((item, index) => (
           <>
             {isFilled.keyText(item.data.title) && (
-              <li key={index} className='list-item opacity-0f'>
+              <li
+                key={index}
+                className='list-item opacity-0f'
+                onMouseEnter={() => onMouseEnter(index)}
+              >
                 <Link
                   href={urlPrefix + '/' + item.uid}
                   className='flex flex-col justify-between border-t border-t-slate-100 text-slate-200 md:flex-row'
