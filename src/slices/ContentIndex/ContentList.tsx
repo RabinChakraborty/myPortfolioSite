@@ -35,9 +35,15 @@ const ContentList = ({
   const onMouseEnter = (index: number) => {
     SetCurrentItem(index);
   };
+  const onMouseLeave = () => {
+    SetCurrentItem(null);
+  };
   return (
     <div ref={component}>
-      <ul className='grid border-b border-b-slate-100'>
+      <ul
+        onMouseLeave={onMouseLeave}
+        className='grid border-b border-b-slate-100'
+      >
         {items.map((item, index) => (
           <>
             {isFilled.keyText(item.data.title) && (
