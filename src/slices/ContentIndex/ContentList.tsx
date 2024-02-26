@@ -18,6 +18,13 @@ const ContentList = ({
   fallbackItemImage,
   viewMoreText = 'Read More',
 }: ContentListProps) => {
+  const lastMousePos = useRef({ x: 0, y: 0 });
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const mousePos = { x: e.clientX, y: e.clientY + window.scrollY };
+    };
+  });
+
   const component = useRef(null);
   const [currentItem, SetCurrentItem] = useState<null | number>(null);
   const urlPrefix = contentType === 'Blog' ? '/blog' : '/project';
@@ -38,6 +45,7 @@ const ContentList = ({
   const onMouseLeave = () => {
     SetCurrentItem(null);
   };
+
   return (
     <div ref={component}>
       <ul
