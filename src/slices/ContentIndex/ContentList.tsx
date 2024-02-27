@@ -39,6 +39,7 @@ const ContentList = ({
             rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1),
             ease: 'back.out(2)',
             duration: 1.3,
+            opacity: 1,
           });
         }
         lastMousePos.current = mousePos;
