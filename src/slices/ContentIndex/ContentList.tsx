@@ -5,6 +5,9 @@ import { MdArrowOutward } from 'react-icons/md';
 import Link from 'next/link';
 import { components } from './../index';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type ContentListProps = {
   items: Content.BlogPostDocument[] | Content.ProjectDocument[];
@@ -21,8 +24,10 @@ const ContentList = ({
 }: ContentListProps) => {
   const component = useRef(null);
   const revealRef = useRef(null);
+  const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
   const [currentItem, SetCurrentItem] = useState<null | number>(null);
   const lastMousePos = useRef({ x: 0, y: 0 });
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const mousePos = { x: e.clientX, y: e.clientY + window.scrollY };
@@ -53,6 +58,31 @@ const ContentList = ({
   }, [currentItem]);
 
   const urlPrefix = contentType === 'Blog' ? '/blog' : '/project';
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      itemsRef.current.forEach((item) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.3,
+            ease: 'elastic.out(1,0.3)',
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: item,
+              start: 'top bottom-=100px',
+              end: 'bottom center',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+    });
+  });
+
   const contentImages = items.map((item) => {
     const image = isFilled.image(item.data.hover_image)
       ? item.data.hover_image
@@ -84,6 +114,7 @@ const ContentList = ({
                 key={index}
                 className='list-item opacity-0f'
                 onMouseEnter={() => onMouseEnter(index)}
+                ref={(el) => (itemsRef.current[index] = el)}
               >
                 <Link
                   href={urlPrefix + '/' + item.uid}
