@@ -101,6 +101,14 @@ const ContentList = ({
     SetCurrentItem(null);
   };
 
+  useEffect(() => {
+    contentImages.forEach((url) => {
+      if (!url) return;
+      const img = new Image();
+      img.src = url;
+    });
+  }, [contentImages]);
+
   return (
     <div ref={component}>
       <ul
