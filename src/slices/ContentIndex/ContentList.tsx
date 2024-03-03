@@ -79,8 +79,9 @@ const ContentList = ({
           }
         );
       });
-    });
-  });
+      return () => ctx.revert();
+    }, component);
+  }, []);
 
   const contentImages = items.map((item) => {
     const image = isFilled.image(item.data.hover_image)
