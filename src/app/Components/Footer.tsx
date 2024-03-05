@@ -57,9 +57,9 @@ export default async function Footer() {
           </ul>
         </nav>
         <div className='socials inline-flex justify-center sm:justify-end'>
-          {isFilled.link(settings.data.github_link) && (
+          {isFilled.link(settings.data.gthub_link) && (
             <PrismicNextLink
-              field={settings.data.github_link}
+              field={settings.data.gthub_link}
               className='p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400'
               aria-label={settings.data.name + ' on GitHub'}
             >
@@ -75,9 +75,9 @@ export default async function Footer() {
               <FaTwitter />
             </PrismicNextLink>
           )}
-          {isFilled.link(settings.data.linkedin_link) && (
+          {isFilled.link(settings.data.linkdin_link) && (
             <PrismicNextLink
-              field={settings.data.linkedin_link}
+              field={settings.data.linkdin_link}
               className='p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400'
               aria-label={settings.data.name + ' on LinkedIn'}
             >
