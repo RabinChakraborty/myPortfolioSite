@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Params }) {
     return new Intl.DateTimeFormat("en-US", dateOptions).format(new Date(date)) }
   }
   
- const formattedDate= formatDate(page.data.date)
+ const formattedDate= formatDate(page.data.date);
   
 
   return (
