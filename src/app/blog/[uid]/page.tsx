@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Params }) {
     return new Intl.DateTimeFormat("en-US", dateOptions).format(new Date(date)) }
   }
   
- const formattedDate= formatDate(page.data.date);
+ const formattedDate= formatDate(page.data.date)
   
 
   return (
@@ -39,7 +39,7 @@ export default async function Page({ params }: { params: Params }) {
             <span key={tag}>{tag}</span>
           ))}
         </div>
-        <p>{formattedDate}</p>
+        <p className="mt-8 border-b border-slate-600 text-xl font-medium text-slate-300">{formattedDate}</p>
         <SliceZone slices={page.data.slices} components={components} />
       </div>
     </Bounded>
