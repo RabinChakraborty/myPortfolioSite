@@ -16,19 +16,21 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID('blog_post', params.uid)
     .catch(() => notFound());
 
-  function formatDate(date: DateField){
-    if(isFilled.date(date)){
-      const dateOptions: Intl.DateTimeFormatOptions = { 
-     weekday:"long",
-     year: "numeric",
-     month: "long",
-     day: "numeric",
+  function formatDate(date: DateField) {
+    if (isFilled.date(date)) {
+      const dateOptions: Intl.DateTimeFormatOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+      return new Intl.DateTimeFormat('en-US', dateOptions).format(
+        new Date(date)
+      );
     }
-    return new Intl.DateTimeFormat("en-US", dateOptions).format(new Date(date)) }
   }
-  
- const formattedDate= formatDate(page.data.date);
-  
+
+  const formattedDate = formatDate(page.data.date);
 
   return (
     <Bounded as='article'>
@@ -39,7 +41,9 @@ export default async function Page({ params }: { params: Params }) {
             <span key={tag}>{tag}</span>
           ))}
         </div>
-        <p className="mt-8 border-b border-slate-600 text-xl font-medium text-slate-300">{formattedDate}</p>
+        <p className='mt-8 border-b border-slate-600 text-xl font-medium text-slate-300'>
+          {formattedDate}
+        </p>
         <SliceZone slices={page.data.slices} components={components} />
       </div>
     </Bounded>
