@@ -4,6 +4,9 @@ import { SliceZone } from '@prismicio/react';
 
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
+import Bounded from '@/app/Components/Bonded';
+import Heading from '@/app/Components/Heading';
+import { DateField, isFilled } from '@prismicio/client';
 
 type Params = { uid: string };
 
@@ -13,7 +16,34 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID('blog_post', params.uid)
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  function formatDate(date: DateField){
+    if(isFilled.date(date)){
+      const dateOptions: Intl.DateTimeFormatOptions = { 
+     weekday:"long",
+     year: "numeric",
+     month: "long",
+     day: "numeric",
+    }
+    return new Intl.DateTimeFormat("en-US", dateOptions).format(new Date(date)) }
+  }
+  
+ const formattedDate= formatDate(page.data.date);
+  
+
+  return (
+    <Bounded as='article'>
+      <div className='rounded-2xl border-2  px-4 py-10 md:px-8 md:py-20'>
+        <Heading as='h1'>{page.data.title}</Heading>
+        <div className='flex gap-4 text-yellow-400 text-xl font-bold'>
+          {page.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+        <p>{formattedDate}</p>
+        <SliceZone slices={page.data.slices} components={components} />
+      </div>
+    </Bounded>
+  );
 }
 
 export async function generateMetadata({
