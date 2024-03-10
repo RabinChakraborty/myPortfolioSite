@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <Bounded as='article'>
       <div className='rounded-2xl border-2  px-4 py-10 md:px-8 md:py-20'>
-        <Heading as='h1'>{page.data.title}</Heading>
+        <Heading as='h2'>{page.data.title}</Heading>
         <div className='flex gap-4 text-yellow-400 text-xl font-bold'>
           {page.tags.map((tag) => (
             <span key={tag}>{tag}</span>
@@ -44,7 +44,9 @@ export default async function Page({ params }: { params: Params }) {
         <p className='mt-8 border-b border-slate-600 text-xl font-medium text-slate-300'>
           {formattedDate}
         </p>
-        <SliceZone slices={page.data.slices} components={components} />
+        <div className='prose prose-lg prose-invert mt-12 w-full max-w-none md:mt-20'>
+          <SliceZone slices={page.data.slices} components={components} />
+        </div>
       </div>
     </Bounded>
   );
