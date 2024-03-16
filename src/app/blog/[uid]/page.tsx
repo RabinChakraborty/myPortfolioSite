@@ -3,10 +3,6 @@ import { notFound } from 'next/navigation';
 import { SliceZone } from '@prismicio/react';
 
 import { createClient } from '@/prismicio';
-import { components } from '@/slices';
-import Bounded from '@/app/Components/Bonded';
-import Heading from '@/app/Components/Heading';
-import { DateField, isFilled } from '@prismicio/client';
 import ContentBody from '@/app/Components/ContentBody';
 
 type Params = { uid: string };
