@@ -1,7 +1,5 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SliceZone } from '@prismicio/react';
-
 import { createClient } from '@/prismicio';
 import ContentBody from '@/app/Components/ContentBody';
 
