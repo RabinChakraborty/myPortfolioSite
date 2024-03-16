@@ -57,7 +57,7 @@ const ContentList = ({
     };
   }, [currentItem]);
 
-  const urlPrefix = contentType === 'Blog' ? '/blog' : '/project';
+  const urlPrefix = contentType === 'Blog' ? '/blog' : '/projects';
 
   useEffect(() => {
     let ctx = gsap.context(() => {
