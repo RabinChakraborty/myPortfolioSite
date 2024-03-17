@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Content, asImageSrc, isFilled } from '@prismicio/client';
 import { MdArrowOutward } from 'react-icons/md';
 import Link from 'next/link';
-import { components } from './../index';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
